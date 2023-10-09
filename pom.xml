@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.2</version>
+        <relativePath/>
+    </parent>
+    <groupId>cn.huanju.edu100</groupId>
+    <artifactId>alap-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>alap-parent</name>
+    <description>Application layer access platform(应用层接入平台) parent project</description>
+
+    <properties>
+        <!-- spring framework -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>2020.0.3</spring-cloud.version>
+        <spring-cloud.netflix.version>3.0.3</spring-cloud.netflix.version>
+        <spring.cloud.alibaba.version>2021.1</spring.cloud.alibaba.version>
+
+        <!-- base tools -->
+        <lombok.version>1.18.20</lombok.version>
+        <jjwt.version>0.9.0</jjwt.version>
+
+        <!-- swagger -->
+        <knife4j.version>3.0.2</knife4j.version>
+        <swagger.version>3.0.0</swagger.version>
+
+        <!-- common tools -->
+        <hutool.version>5.7.8</hutool.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
+        <guava.version>30.1.1-jre</guava.version>
+        <gson.version>2.8.6</gson.version>
+        <fastjson.version>1.2.78</fastjson.version>
+
+        <!-- repository -->
+        <mysql.version>5.1.48</mysql.version>
+        <druid.version>1.2.6</druid.version>
+        <mybatis-plus.version>3.4.0</mybatis-plus.version>
+        <mybatis-dynamic.version>3.4.0</mybatis-dynamic.version>
+        <jetcache.version>2.6.0</jetcache.version>
+        <jetcache-lettuce.version>2.6.0</jetcache-lettuce.version>
+        <commons-pool2.version>2.10.0</commons-pool2.version>
+
+        <!-- extend tools -->
+        <xxl-job.verson>2.2.0</xxl-job.verson>
+        <resilience4j.version>1.7.0</resilience4j.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- spring framework ================================================== -->
+            <!--spring cloud-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--spring cloud netflix-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-netflix-dependencies</artifactId>
+                <version>${spring-cloud.netflix.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--spring cloud ali-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud.alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+
+            <!-- base tools ================================================== -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+
+
+            <!-- swagger2 ================================================== -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+
+
+            <!-- common tools ================================================== -->
+            <!--hutool-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <!--commons-lang3-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+            <!-- guava -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <!-- gson -->
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
+            </dependency>
+            <!-- fastjson -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- repository ================================================== -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <version>${mybatis-dynamic.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alicp.jetcache</groupId>
+                <artifactId>jetcache-starter-redis</artifactId>
+                <version>${jetcache.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alicp.jetcache</groupId>
+                <artifactId>jetcache-starter-redis-lettuce</artifactId>
+                <version>${jetcache-lettuce.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${commons-pool2.version}</version>
+            </dependency>
+
+
+            <!-- extend tools ================================================== -->
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${xxl-job.verson}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.resilience4j</groupId>
+                <artifactId>resilience4j-all</artifactId>
+                <version>${resilience4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.resilience4j</groupId>
+                <artifactId>resilience4j-spring-cloud2</artifactId>
+                <version>${resilience4j.version}</version>
+            </dependency>
+
+
+            <!-- test ================================================== -->
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-starter-test</artifactId>-->
+<!--                <scope>test</scope>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>junit</groupId>-->
+<!--                <artifactId>junit</artifactId>-->
+<!--                <version>4.12</version>-->
+<!--                <scope>test</scope>-->
+<!--            </dependency>-->
+        </dependencies>
+    </dependencyManagement>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                    <encoding>UTF8</encoding>
+                    <compilerArgs><arg>-parameters</arg></compilerArgs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>music-public</id>
+            <url>http://nexus.duowan.com/music/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>music-public</id>
+            <url>http://nexus.duowan.com/music/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+
+
+<!--    <repositories>-->
+<!--        <repository>-->
+<!--            <id>aliyunmaven</id>-->
+<!--            <name>阿里云公共仓库</name>-->
+<!--            <url>https://maven.aliyun.com/repository/central</url>-->
+<!--            <layout>default</layout>-->
+<!--            <releases><enabled>true</enabled></releases>-->
+<!--            <snapshots><enabled>false</enabled></snapshots>-->
+<!--        </repository>-->
+<!--    </repositories>-->
+
+
+</project>
